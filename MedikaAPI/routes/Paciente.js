@@ -16,7 +16,8 @@ router.get('/ObtenerPaciente', function (req, res, next) {
 
     database.query(sql)
         .then(rows => {
-            res.send(rows[0]);
+            res.send(rows);
+            console.log(rows);
             return database.close();
         }, err => {
             return database.close().then(() => {
