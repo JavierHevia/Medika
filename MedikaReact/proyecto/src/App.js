@@ -2,20 +2,28 @@ import React from 'react';
 import './App.css';
 import logo from './imagenes/fondoMedika.png';
 import SimpleMenu from './Componente/SimpleMenu';
-import PermanentDrawerLeft from './Componente/PermantDrawerLeft';
+import TemporaryDrawer from './Componente/TemporaryDrawer';
+
 
 function App() {
   return (
     <div className="App">
+      <section className="App-MenuB">
+          <TemporaryDrawer />
+      </section>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />  
+        <img src={logo} className="App-logo" alt="logo" align="right"> 
+        </img> 
       </header>
       <body bgcolor="#008b8b">
-        <section className="App-Menu" align="left">
-          <SimpleMenu />
+        <section className="App-MenuB">
+          Bienvenido!
+        </section>
+        <section className="App-Menu">
+            <SimpleMenu />
         </section>
         <section>
-          <PermanentDrawerLeft />
+          
         </section>
         <section className="App-Cuerpo">
 
