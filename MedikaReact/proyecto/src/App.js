@@ -1,56 +1,117 @@
 import React from 'react';
 import './App.css';
 import logo from './imagenes/fondoMedika.png';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import SimpleMenu from './Componente/SimpleMenu';
 import MenuTrabajador from './Componente/MenuTrabajador';
 
 
 
 function App() {
+
+var a;
   return (
     <div className="App">
       <section className="App-MenuB">
-          <SimpleMenu />
-          <MenuTrabajador />
+    
+          
       </section>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" align="right"> 
         </img> 
       </header>
-      <section className="App-Cuerpo">
-        <div>
-          <h1>Misión</h1>
-          <p align="left">
-            <ul>
-            <li>Colaborar para mejorar la salud y la calidad de vida de los ciudadanos, ofertando servicios sanitarios excelentes, con el paciente como centro de nuestra atención, y profesionales altamente cualificados, en un hospital privado con vocación docente e investigadora.
-            </li>
-            <li>Asegurar la máxima colaboración e integración con la administración pública, con atención primaria y los servicios socio-sanitarios, las compañías aseguradoras y el Grupo Quironsalud, promoviendo un beneficio mutuo y sostenible para toda la sociedad.
-            </li>
-            </ul>
-          </p>
-        </div>
-        </section>
-        <section className="App-Cuerpo">
-        <div>
-         <h1> Visión</h1>
-          <p align="left">
-            <ul>
-            <li> Liderar la Transformación del Sistema Sanitario actual para asegurar su sostenibilidad, promoviendo la innovación e incorporando las nuevas tecnologías disponibles.
-            </li>
-            <li>Asegurar la máxima colaboración e integración con la administración pública, con atención primaria y los servicios socio-sanitarios, las compañías aseguradoras y el Grupo Quironsalud, promoviendo un beneficio mutuo y sostenible para toda la sociedad.
-            </li>
-            <li>
-            Ser reconocidos como referentes a nivel nacional e internacional, desde la perspectiva asistencial, docente e investigadora.
-            </li>
-            </ul>
-          </p>
-        </div>
-    </section>
+     
       
+      <Router>
+      <div>
+        
+            <button> <Link to="/">Iniciar Sesion</Link></button> 
+           
+              <button><Link to="/Trabajadores">Trabajadores</Link></button>
+           
+              <button><Link to="/Ubicaciones">Ubicaciones</Link></button>
+              <button> <Link to="/">Cerrar Sesion</Link></button> 
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/Trabajadores">
+            <About />
+          </Route>
+          <Route path="/Ubicaciones">
+            <Users />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>  
+    <hr></hr>
+      <div className="footer">
+        Contacto: medika@gmail.com
+        <br></br>
+        <center>Derechos Reservados: Medika Inc  2020</center>
+      </div>
     </div>
+    
+  );
+}
+function Home() {
+  return (<div>
+            <h2>Login</h2>
+            <button>Enviar</button>
+          </div>
+        );
+}
+
+function About() {
+  return (
+    <Router>
+      <div>
+        
+            <button> <Link to="/Gerente">Gerente</Link></button> 
+           
+              <button><Link to="/Doctor">Doctor</Link></button>
+           
+              <button><Link to="/Administracion">Administracion</Link></button>
+        
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/Gerente">
+            <Gerente />
+          </Route>
+          <Route path="/Administracion">
+            <Administracion />
+          </Route>
+          <Route path="/Doctor">
+            <Doctor />
+          </Route>
+        </Switch>
+      </div>
+    </Router>  
   );
 }
 
+function Users() {
+  return <h2>Users</h2>;
+}
+function Gerente() {
+  return <h2>Funciones GERENTE</h2>;
+}
+function Administracion() {
+  return <h2>Administracion Funciones</h2>;
+}
+function Doctor() {
+  return <h2>Funciones Doctor</h2>;
+}
 export default App;
     
 

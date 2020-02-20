@@ -2,8 +2,11 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { render } from 'react-dom';
 
 export default function MenuTrabajador() {
+  
+  
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick1 = event => {
@@ -13,6 +16,13 @@ export default function MenuTrabajador() {
   const handleClose1 = () => {
     setAnchorEl(null);
   };
+  const MostrarGerente = () => {
+    console.log('El modulo es de gerente');
+    return(<h1>Hola Diana</h1>)
+  };
+ 
+  
+   
 
   return (
       <React.Fragment>
@@ -27,10 +37,11 @@ export default function MenuTrabajador() {
         open={Boolean(anchorEl)}
         onClose={handleClose1}
       >
-        <MenuItem onClick={handleClose1}>Gerente</MenuItem>
-        <MenuItem onClick={handleClose1}>Doctor</MenuItem>
+        <MenuItem onClick={MostrarGerente}>Gerente</MenuItem>
+        <MenuItem onClick={MostrarGerente }>Doctor</MenuItem>
         
       </Menu>
+      
       </React.Fragment>
   );
 }

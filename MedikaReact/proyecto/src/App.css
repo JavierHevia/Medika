@@ -23,6 +23,10 @@
   font-size: calc(10px + 2vmin);
   color: white; 
 }
+.footer {
+  background-color:#3d9c90;
+  
+}
 
 .App-link {
   color: #61dafb;
