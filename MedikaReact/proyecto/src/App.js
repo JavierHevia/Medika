@@ -103,9 +103,45 @@ function About() {
 function Users() {
   return <h2>Users</h2>;
 }
-function Gerente() {
-  return <h2>Funciones GERENTE</h2>;
+function llamButton(){
+  alert("Registrado");
+  return true;
 }
+function llamMedicamento(){
+  alert("Medicamento Guardado");
+  return true;
+}
+function Gerente() {
+  
+  return (  
+
+
+  <div>
+    <section>
+      <h2>Registrar Empleado</h2>
+      <form>
+        Nombre: <input type="text"></input>
+        Edad: <input type="text"></input>
+        Telefono: <input type="text"></input>
+        DPI: <input type="text"></input>
+        
+      </form>
+      <button onClick={llamButton}>Registrar</button>
+      
+      <h2>Registrar Medicamento</h2>
+      <form>
+        Nombre: <input type="text"></input>
+        Cantidad: <input type="text"></input>
+        Enfermedad: <input type="text"></input>
+      </form>
+      <button onClick={llamMedicamento}>Guardar Medicamento</button>
+      
+    </section>
+  </div>
+
+  );
+}
+
 function Administracion() {
   return <h2>Administracion Funciones</h2>;
 }
