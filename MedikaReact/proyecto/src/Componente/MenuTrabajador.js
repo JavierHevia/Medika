@@ -3,33 +3,34 @@ import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 
-export default function SimpleMenu() {
+export default function MenuTrabajador() {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = event => {
+  const handleClick1 = event => {
     setAnchorEl(event.currentTarget);
   };
 
-  const handleClose = () => {
+  const handleClose1 = () => {
     setAnchorEl(null);
   };
 
   return (
-    <React.Fragment>
-      <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-        Login
+      <React.Fragment>
+    
+      <Button aria-controls="trabajador-menu" aria-haspopup="true" onClick={handleClick1} >
+        Trabajador
       </Button>
       <Menu
-        id="simple-menu"
+        id="trabajador-menu"
         anchorEl={anchorEl}
         keepMounted
         open={Boolean(anchorEl)}
-        onClose={handleClose}
+        onClose={handleClose1}
       >
-        <MenuItem onClick={handleClose}>Iniciar Sesion</MenuItem>
-        <MenuItem onClick={handleClose}>Registro</MenuItem>
+        <MenuItem onClick={handleClose1}>Gerente</MenuItem>
+        <MenuItem onClick={handleClose1}>Doctor</MenuItem>
         
       </Menu>
-    </React.Fragment>
+      </React.Fragment>
   );
 }
