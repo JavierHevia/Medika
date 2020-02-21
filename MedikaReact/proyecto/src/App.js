@@ -1,25 +1,28 @@
 import React from 'react';
 import './App.css';
 import logo from './imagenes/fondoMedika.png';
+import corazon from './imagenes/corazon.jpg';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import SimpleMenu from './Componente/SimpleMenu';
-import MenuTrabajador from './Componente/MenuTrabajador';
+import Traer from './Componente/Traer';
+import RegistroTrabajador from './Componente/RegistroTrabajador';
+
 
 
 
 function App() {
 
-var a;
+
   return (
     <div className="App">
       <section className="App-MenuB">
-    
-          
+        <img src={corazon} className="corazon">  
+        </img> Bienvenido a Medika!
       </section>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" align="right"> 
@@ -30,18 +33,21 @@ var a;
       <Router>
       <div>
         
-            <button> <Link to="/">Iniciar Sesion</Link></button> 
-           
-              <button><Link to="/Trabajadores">Trabajadores</Link></button>
-           
-              <button><Link to="/Ubicaciones">Ubicaciones</Link></button>
-              <button> <Link to="/">Cerrar Sesion</Link></button> 
+            <button class="boton_personalizado"><Link to="/">Iniciar Sesion</Link></button> 
+            <button class="boton_personalizado"><Link to="/Trabajadores">Trabajadores</Link></button>
+            <button class="boton_personalizado"><Link to="/Registro">Registro</Link></button>
+            <button class="boton_personalizado"><Link to="/Ubicaciones">Ubicaciones</Link></button>
+            <button class="boton_personalizado"><Link to="/">Cerrar Sesion</Link></button> 
+            <button class="boton_personalizado"><Link to="/">Ultimas Noticias</Link></button> 
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/Trabajadores">
             <About />
+          </Route>
+          <Route path="/Registro">
+            <Registro />
           </Route>
           <Route path="/Ubicaciones">
             <Users />
@@ -64,24 +70,27 @@ var a;
 }
 function Home() {
   return (<div>
-            <h2>Login</h2>
+            <h2>Iniciar Sesion</h2>
             <button>Enviar</button>
           </div>
         );
 }
-
+function Registro() {
+  return (<div>
+            <h2>Registro nuevo Usuario</h2>
+            <button>Enviar</button>
+          </div>
+        );
+}
 function About() {
   return (
     <Router>
-      <div>
-        
-            <button> <Link to="/Gerente">Gerente</Link></button> 
-           
-              <button><Link to="/Doctor">Doctor</Link></button>
-           
-              <button><Link to="/Administracion">Administracion</Link></button>
-        
-
+      <div class="menu_trabajador">
+            <hr></hr>
+            <button class="boton_trabajador"><Link to="/Gerente">Gerente</Link></button> 
+            <button class="boton_trabajador"><Link to="/Doctor">Doctor</Link></button>
+            <button class="boton_trabajador"><Link to="/Administracion">Administracion</Link></button>
+            <hr></hr>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
@@ -101,7 +110,14 @@ function About() {
 }
 
 function Users() {
-  return <h2>Users</h2>;
+
+  return (<div>
+        <h2>Users</h2>
+        <section>
+          <Traer />
+          <RegistroTrabajador />
+        </section>
+        </div>);
 }
 function llamButton(){
   alert("Registrado");
@@ -119,12 +135,13 @@ function Gerente() {
   <div>
     <section>
       <h2>Registrar Empleado</h2>
-      <form>
-        Nombre: <input type="text"></input>
-        Edad: <input type="text"></input>
-        Telefono: <input type="text"></input>
-        DPI: <input type="text"></input>
-        
+      <form align="left">
+        DPI:       <input type="text"></input><br></br>
+        Nombre:    <input type="text"></input><br></br>
+        Apellido:  <input type="text"></input><br></br>
+        Telefono: <input type="text"></input><br></br>
+        Fecha Nacimiento: <input type="text"></input><br></br>
+        Correo Electronico: <input type="text"></input><br></br>
       </form>
       <button onClick={llamButton}>Registrar</button>
       
