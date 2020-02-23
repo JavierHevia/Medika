@@ -7,7 +7,7 @@ export default class Traer extends React.Component {
   }
 
   async componentDidMount() {
-    axios.get(`http://localhost:8080/Paciente/ObtenerPaciente`)
+    axios.get('http://34.69.180.235:8080/Paciente/ObtenerPaciente')
       .then(res => {
         const persons = res.data;
         this.setState({ persons });

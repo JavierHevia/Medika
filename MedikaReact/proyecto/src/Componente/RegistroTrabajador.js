@@ -47,7 +47,7 @@ export default class RegistroTrabajador extends React.Component {
     };
 
     
-    axios.post(`http://localhost:8080/Empleado/RegistrarEmpleado`, { user })
+    axios.post('http://34.69.180.235:8080/Empleado/RegistrarEmpleado', { user })
       .then(res => {
         console.log('El usuario fue registrado');
         console.log(res);

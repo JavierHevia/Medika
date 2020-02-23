@@ -7,7 +7,7 @@ class Database {
         this.connection = mysql.createConnection({
             host: 'localhost',
             user: 'root',
-            password: 'password',
+            password: '1234',
             database: 'MedikaDB',
             port: 3306
         });
