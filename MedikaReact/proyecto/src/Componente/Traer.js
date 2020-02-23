@@ -6,8 +6,8 @@ export default class Traer extends React.Component {
     persons: []
   }
 
-  componentDidMount() {
-    axios.get(`https://jsonplaceholder.typicode.com/users`)
+  async componentDidMount() {
+    axios.get(`http://localhost:8080/Paciente/ObtenerPaciente`)
       .then(res => {
         const persons = res.data;
         this.setState({ persons });
@@ -16,8 +16,8 @@ export default class Traer extends React.Component {
 
   render() {
     return (
-      <ul>
-        { this.state.persons.map(person => <li>{person.name}</li>)}
+      <ul align="left">
+        { this.state.persons.map(person => <li>Nombre: {person.nombre} Puesto: {person.rol} </li>)}
       </ul>
     )
   }

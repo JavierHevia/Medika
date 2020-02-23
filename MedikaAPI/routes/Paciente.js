@@ -12,7 +12,7 @@ var Database = require('./Database.js');
 router.get('/ObtenerPaciente', function (req, res, next) {
 
     var database = new Database();
-    var sql = 'SELECT * FROM PACIENTE';
+    var sql = 'SELECT * FROM EMPLEADO';
 
     database.query(sql)
         .then(rows => {

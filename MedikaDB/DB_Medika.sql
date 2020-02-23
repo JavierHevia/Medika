@@ -20,6 +20,7 @@ CREATE TABLE EMPLEADO(
     rol       VARCHAR(100),
     telefono  VARCHAR(12),
     correo    VARCHAR(50),
+    fechanac  VARCHAR(100),
     cod       INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT
 );
 

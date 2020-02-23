@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Traer from './Componente/Traer';
 import RegistroTrabajador from './Componente/RegistroTrabajador';
+import RegistroMedicamentoComponent from './Componente/RegistroMedicamento';
 
 
 
@@ -95,7 +96,7 @@ function About() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/Gerente">
-            <Gerente />
+            <FuncionesGerente />
           </Route>
           <Route path="/Administracion">
             <Administracion />
@@ -114,8 +115,7 @@ function Users() {
   return (<div>
         <h2>Users</h2>
         <section>
-          <Traer />
-          <RegistroTrabajador />
+         
         </section>
         </div>);
 }
@@ -127,37 +127,71 @@ function llamMedicamento(){
   alert("Medicamento Guardado");
   return true;
 }
-function Gerente() {
+function FuncionesGerente(){
+  return (
+    <Router>
+      <div class="menu_trabajador">
+            <hr></hr>
+            <button class="boton_trabajador"><Link to="/RegistrarEmpleado">Registrar Empleado</Link></button> 
+            <button class="boton_trabajador"><Link to="/RegistrarMedicamento">Registrar Medicamento</Link></button>
+            <button class="boton_trabajador"><Link to="/VerUsuarios">Ver usuarios</Link></button>
+            <hr></hr>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/RegistrarEmpleado">
+            <RegistrarEmpleado />
+          </Route>
+          <Route path="/RegistrarMedicamento">
+            <RegistrarMedicamento />
+          </Route>
+          <Route path="/VerUsuarios">
+            <VerUsuarios />
+          </Route>
+        </Switch>
+      </div>
+    </Router>  
+  );
+
+}
+function RegistrarEmpleado() {
   
   return (  
-
-
   <div>
     <section>
       <h2>Registrar Empleado</h2>
-      <form align="left">
-        DPI:       <input type="text"></input><br></br>
-        Nombre:    <input type="text"></input><br></br>
-        Apellido:  <input type="text"></input><br></br>
-        Telefono: <input type="text"></input><br></br>
-        Fecha Nacimiento: <input type="text"></input><br></br>
-        Correo Electronico: <input type="text"></input><br></br>
-      </form>
-      <button onClick={llamButton}>Registrar</button>
-      
-      <h2>Registrar Medicamento</h2>
-      <form>
-        Nombre: <input type="text"></input>
-        Cantidad: <input type="text"></input>
-        Enfermedad: <input type="text"></input>
-      </form>
-      <button onClick={llamMedicamento}>Guardar Medicamento</button>
-      
+      <RegistroTrabajador />   
     </section>
   </div>
 
   );
 }
+function RegistrarMedicamento() {
+  
+  return (  
+  <div>
+    <section>
+  
+      <h2>Registrar Medicamento</h2>
+      <RegistroMedicamentoComponent />
+    </section>
+  </div>
+
+  );
+}
+function VerUsuarios() {
+  
+  return (  
+  <div>
+    <section>
+      <h2>Ver Usuarios</h2>
+      <Traer />
+    </section>
+  </div>
+
+  );
+}
+
 
 function Administracion() {
   return <h2>Administracion Funciones</h2>;
