@@ -28,7 +28,7 @@ export default class RegistroMedicamentoComponent extends React.Component {
     };
 
     
-    axios.post('http://34.69.180.235:8080/Medicamento/RegistrarMedicamento', { medicina })
+    axios.post('http://35.209.78.16:8080/Medicamento/RegistrarMedicamento', { medicina })
       .then(res => {
         console.log('El Medicamento fue registrado');
         console.log(res);
